@@ -4,8 +4,9 @@
     {
         static void Main(string[] args)
         {
-            CyberBot bot = new CyberBot();
-            bot.Start();
+            CyberBot b = new CyberBot();
+            b.Start();
+
         }
     }
 }
