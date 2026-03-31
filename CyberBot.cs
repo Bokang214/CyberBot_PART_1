@@ -92,6 +92,58 @@ namespace CyberBot_PART_1
             TypeEffect("I'm here to help you stay safe online\n");
         }
 
+        //============
+        // MENU LOOP
+        //============
+
+        private void MenuLoop()
+        {
+            while (true)
+            {
+                ShowMenu();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write($"\n{userName}> ");
+                Console.ResetColor();
+
+                string choice = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(choice))
+                {
+                    ShowError("Invalid input. Please select an option.");
+                    continue;
+                }
+                switch (choice)
+                {
+                    case "1":
+                        TypeEffect("My purpose is to educate you about cybersecurity and help you stay safe online.");
+                        break;
+                    case "2":
+                        TypeEffect("Phshing is a scam where attackers trick you into giving away personal information through fake emails or websites");
+                        break;
+                    case"3":
+                        TypeEffect("Use strong passwords with letters, numbers, and symbols. Avoid using personal information and never reuse passwords.");
+                        break;
+                    case "4":
+                        TypeEffect("Safe browsing means visiting secure websites (https), avoiding suspicious links, and keeping your software updated.");
+                        break;
+                   
+                    case "5":
+                        HandleGeneralQuestions();
+                        break;
+
+                    case "6":
+                    case "exit"
+                        TypeEffect($"Goodbye {userName}, stay safe online and remember, think before you click!");
+                        return;
+
+                    default:
+                        ShowError("Please choose a valid option (1-6).");
+                        break;
+
+                }
+            }
+        }
         }
     }
     
