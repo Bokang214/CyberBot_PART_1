@@ -14,7 +14,7 @@ namespace CyberBot_PART_1
             Console.Title = "Cybersecurity Awareness Bot";
 
             ShowHeader();
-            PlayVoiceGreating();
+            PlayVoiceGreeting();
             GetUserName();
             WelcomeUser();
             MenuLoop();
@@ -66,6 +66,23 @@ namespace CyberBot_PART_1
                 Console.ResetColor();
             }
         }
+            //================
+            //GET USER NAME
+            //================
+
+            private void GetUserName()
+        {
+            Console.Write("\nEnter your name: ");
+            userName = Console.ReadLine();
+
+            while (string.IsNullOrWhiteSpace(userName))
+            {
+                Console.Write("Name cannot be empty. Try again: ");
+                userName = Console.ReadLine();
+            }
+        }
+
+        }
     }
-    }
+    
 
