@@ -144,6 +144,88 @@ namespace CyberBot_PART_1
                 }
             }
         }
+
+        //===============
+        // MENU DISPLAY
+        //===============
+
+        private void ShowMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
+            Console.WriteLine("\n================ MENU ================");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+
+            Console.WriteLine("1. What is my purpose?");
+            Console.WriteLine("2. Phishing");
+            Console.WriteLine("3. Passwords");
+            Console.WriteLine("4. Safe Browsing");
+            Console.WriteLine("5. General Questions");
+            Console.WriteLine("6. Exit");
+
+            Console.ResetColor();
+        }
+
+        //======================
+        // GENERAL QUESTIONS
+        //======================
+
+        private void HandleGeneralQuestions()
+        {
+            Console.Write("\nAsk (e.g. how are you, what can I ask): ");
+            string input = Console.ReadLine()?.ToLower();
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                ShowError("Invalid question.");
+                return;
+            }
+
+            if (input.Contains("how are you"))
+            {
+                TypeEffect("I am doing great, thank you for asking!");
+            }
+            else if (input.Contains("what can i ask"))
+            {
+                TypeEffect("You can ask about phishing, passwords, safe browsing, or my purpose.");
+            }
+            else if (input.Contains("purpose"))
+            {
+                TypeEffect("My purpose is to help you stay safe online.");
+            }
+            else
+            {
+                ShowError("I didn’t understand that question.");
+            }
+        }
+
+        //====================
+        // TYPING EFFECT
+        //====================
+
+        private void TypeEffect(string message)
+        {
+            foreach(char c in message)
+            {
+                Console.Write(c);
+                Thread.Sleep(15);
+            }
+            Console.WriteLine();
+
+        }
+
+        //=================
+        // DISPLAY ERROR
+        //=================
+
+        private void ShowError(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
         }
     }
     
